@@ -1,1 +1,5 @@
 This journal contains any specific decision and basic information as a rough note.
+
+A todo is an object, that is mapped with properties - id, title, about(optional), reminderTime, priorityTag, entitiesInvolved, isSecure(for pin-based secured todo's) and a bcrypt encrypted hash for secure todo's.
+
+The singleton pattern is being used for DB connection because, there is only a single connection instance to a database not more than that.
