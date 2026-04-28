@@ -33,7 +33,15 @@ runs at - http://localhost:3000/todo
 
 ---
 
-### Test example,
+## Running the Front-End
+
+1. **Start the backend:** Ensure you are in the root `todo-krishna` directory and run `npm run dev`.
+2. **Start the frontend:** Navigate to the `frontend` directory, run `npm install` (first time only), then run `npm run dev`.
+3. Open the Vite local server link in your browser.
+
+---
+
+### Test example for backend,
 
 1) *creating a todo example,*
 

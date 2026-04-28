@@ -21,7 +21,7 @@ todoRouter.get("/:id", (req: Request, res: Response) => {
     const todo = todoService.getTodoByID(id);
     return res.json(todo);
   } catch (err: any) {
-    res.status(404).json({ error: err.message });
+    return res.status(404).json({ error: err.message });
   }
 });
 
@@ -29,12 +29,9 @@ todoRouter.get("/:id", (req: Request, res: Response) => {
 todoRouter.post("/", (req: Request, res: Response) => {
   try {
     const todo = todoService.createTodo(req.body);
-    if (!req.body || !req.body.title) {
-      return res.status(400).json({ error: "incorrect input" });
-    }
     return res.status(201).json(todo);
   } catch (err: any) {
-    res.status(400).json({ error: err.message });
+    return res.status(400).json({ error: err.message });
   }
 });
 
@@ -48,7 +45,7 @@ todoRouter.delete("/:id", (req: Request, res: Response) => {
     const todo = todoService.deleteTodo(id);
     return res.status(200).json(todo);
   } catch (err: any) {
-    res.status(500).json({ error: err.message });
+    return res.status(500).json({ error: err.message });
   }
 });
 
@@ -57,12 +54,12 @@ todoRouter.put("/:id", (req: Request, res: Response) => {
   try {
     const id = Number(req.params.id);
     if (isNaN(id)) {
-      return res.status(400).json({ error: "id seems to be invalid" });
+      return res.status(400).json({ error: "ID seems to be invalid" });
     }
     const todo = todoService.toggleTodo(id);
     return res.status(200).json(todo);
   } catch (err: any) {
-    res.status(500).json({ error: err.message });
+    return res.status(500).json({ error: err.message });
   }
 });
 
