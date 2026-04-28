@@ -14,7 +14,7 @@ A practice backend project by Me to learn:
 
 ## **!Yet to be done,**
 - [x] Basic CRUD (create, read)
-- [ ] Remaining CRUD Operations
+- [x] Remaining CRUD Operations
 - [ ] Front-end
 
 
