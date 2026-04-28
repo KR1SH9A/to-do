@@ -7,15 +7,19 @@ const todoService = new TodoService();
 //to GET all todos
 todoRouter.get("/", (req: Request, res: Response) => {
   const todos = todoService.getAllTodos();
-  res.json(todos);
+  return res.json(todos);
 });
 
 //to GET a todo by an id
 todoRouter.get("/:id", (req: Request, res: Response) => {
   try {
     const id = Number(req.params.id);
+    //handling invalid id's this time
+    if (isNaN(id)) {
+      return res.status(400).json({ error: "id seems to be invalid" });
+    }
     const todo = todoService.getTodoByID(id);
-    res.json(todo);
+    return res.json(todo);
   } catch (err: any) {
     res.status(404).json({ error: err.message });
   }
@@ -25,27 +29,40 @@ todoRouter.get("/:id", (req: Request, res: Response) => {
 todoRouter.post("/", (req: Request, res: Response) => {
   try {
     const todo = todoService.createTodo(req.body);
-    res.status(201).json(todo);
+    if (!req.body || !req.body.title) {
+      return res.status(400).json({ error: "incorrect input" });
+    }
+    return res.status(201).json(todo);
   } catch (err: any) {
     res.status(400).json({ error: err.message });
   }
 });
 
 //delete a todo
-todoRouter.post("/:id", (req: Request, res: Response) => {
+todoRouter.delete("/:id", (req: Request, res: Response) => {
   try {
     const id = Number(req.params.id);
+    if (isNaN(id)) {
+      return res.status(400).json({ error: "id seems to be invalid" });
+    }
+    const todo = todoService.deleteTodo(id);
+    return res.status(200).json(todo);
   } catch (err: any) {
-    res.status(400).json({ error: err.message });
+    res.status(500).json({ error: err.message });
   }
 });
 
 //Update a todo by toggling it
-todoRouter.post("/:id", (req: Request, res: Response) => {
+todoRouter.put("/:id", (req: Request, res: Response) => {
   try {
     const id = Number(req.params.id);
+    if (isNaN(id)) {
+      return res.status(400).json({ error: "id seems to be invalid" });
+    }
+    const todo = todoService.toggleTodo(id);
+    return res.status(200).json(todo);
   } catch (err: any) {
-    res.status(400).json({ error: err.message });
+    res.status(500).json({ error: err.message });
   }
 });
 

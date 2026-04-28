@@ -62,7 +62,7 @@ export class TodoService {
   //I simply checked for existence of todo in Repository layer
 
   //Service to toggle a todo
-  togggleTodo(id: number): void {
+  toggleTodo(id: number): void {
     return this.repo.toggleCompletedTodo(id);
   }
 }
