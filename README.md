@@ -12,10 +12,17 @@ A practice backend project by Me to learn:
 
 ---
 
+## **Take a peek at the current front-end with light and dark mode**
+<img src="https://res.cloudinary.com/dmtwhdtv6/image/upload/v1777406721/Screenshot_2026-04-29_at_1.19.44_AM_fqsqrc.png" width="600" />
+
+<img src ="https://res.cloudinary.com/dmtwhdtv6/image/upload/v1777406776/Screenshot_2026-04-29_at_1.34.35_AM_hz9dvh.png" width="600"/>
+
+---
+
 ## **!Yet to be done,**
 - [x] Basic CRUD (create, read)
 - [x] Remaining CRUD Operations
-- [ ] Front-end
+- [x] Front-end
 
 
 ### **Get started,** 

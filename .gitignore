@@ -142,3 +142,8 @@ vite.config.ts.timestamp-*
 *.db
 #specifically this project
 todo.db
+
+
+#for annoying DS Store files
+.DS_Store
+*.DS_Store
