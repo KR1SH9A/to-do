@@ -1,5 +1,5 @@
 import { Router, Request, Response } from "express";
-import { TodoService } from "../services/todoService";
+import { TodoService } from "../services/TodoService";
 
 const todoRouter = Router();
 const todoService = new TodoService();
@@ -26,6 +26,24 @@ todoRouter.post("/", (req: Request, res: Response) => {
   try {
     const todo = todoService.createTodo(req.body);
     res.status(201).json(todo);
+  } catch (err: any) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+//delete a todo
+todoRouter.post("/:id", (req: Request, res: Response) => {
+  try {
+    const id = Number(req.params.id);
+  } catch (err: any) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+//Update a todo by toggling it
+todoRouter.post("/:id", (req: Request, res: Response) => {
+  try {
+    const id = Number(req.params.id);
   } catch (err: any) {
     res.status(400).json({ error: err.message });
   }

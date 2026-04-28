@@ -1,4 +1,4 @@
-import { TodoRepository } from "../repositories/todoRepository";
+import { TodoRepository } from "../repositories/TodoRepository";
 import { Todo } from "../models/todo";
 
 //In this service, we handle the business logic
@@ -53,5 +53,16 @@ export class TodoService {
       createdOn: Date.now(),
     };
     return this.repo.createTodo(newTodo);
+  }
+
+  //Service to delete a todo
+  deleteTodo(id: number): void {
+    return this.repo.deleteTodo(id);
+  }
+  //I simply checked for existence of todo in Repository layer
+
+  //Service to toggle a todo
+  togggleTodo(id: number): void {
+    return this.repo.toggleCompletedTodo(id);
   }
 }
