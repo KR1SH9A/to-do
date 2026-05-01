@@ -1,13 +1,15 @@
+// NOW THIS MODEL IS REPLACED BY Todo Entity
+
 // this file defines the todo interface for the todo model
 // with its properties and types
 
 export interface Todo {
   id: number;
   name: string;
-  isCompleted: number;
-  createdOn: number;
+  isCompleted: boolean;
+  createdOn: Date;
   about?: string;
-  reminderTime?: number | null;
+  reminderTime?: Date | null;
   priorityTag?: "low" | "medium" | "high";
   entitiesInvolved: string[];
 }
